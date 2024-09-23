@@ -62,13 +62,13 @@ lyr_GoogleStandardMap_0.setVisible(true);lyr_IndianOccupiedKashmir_1.setVisible(
 var layersList = [lyr_GoogleStandardMap_0,lyr_IndianOccupiedKashmir_1,lyr_District_Boundary_2,lyr_TerrorAttacks_3];
 lyr_IndianOccupiedKashmir_1.set('fieldAliases', {'qc_id': 'qc_id', 'objectid': 'objectid', 'province': 'province', 'district': 'district', 'shape_leng': 'shape_leng', 'admin_unit': 'admin_unit', 'shape_le_1': 'shape_le_1', 'shape_le_2': 'shape_le_2', 'shape_area': 'shape_area', });
 lyr_District_Boundary_2.set('fieldAliases', {'qc_id': 'qc_id', 'objectid': 'objectid', 'province': 'province', 'district': 'district', 'shape_leng': 'shape_leng', 'admin_unit': 'admin_unit', 'shape_le_1': 'shape_le_1', 'shape_le_2': 'shape_le_2', 'shape_area': 'shape_area', });
-lyr_TerrorAttacks_3.set('fieldAliases', {'area': 'area', 'date & time': 'date & time', 'perperator group': 'perperator group', 'target': 'target', 'fatalities': 'fatalities', 'injured': 'injured', 'attack type': 'attack type', 'weapon type': 'weapon type', });
+lyr_TerrorAttacks_3.set('fieldAliases', {'fid': 'fid', 'area': 'area', 'date & time': 'date & time', 'perperator group': 'perperator group', 'target': 'target', 'fatalities': 'fatalities', 'injured': 'injured', 'attack type': 'attack type', 'weapon type': 'weapon type', });
 lyr_IndianOccupiedKashmir_1.set('fieldImages', {'qc_id': '', 'objectid': '', 'province': '', 'district': '', 'shape_leng': '', 'admin_unit': '', 'shape_le_1': '', 'shape_le_2': '', 'shape_area': '', });
 lyr_District_Boundary_2.set('fieldImages', {'qc_id': '', 'objectid': '', 'province': '', 'district': '', 'shape_leng': '', 'admin_unit': '', 'shape_le_1': '', 'shape_le_2': '', 'shape_area': '', });
-lyr_TerrorAttacks_3.set('fieldImages', {'area': '', 'date & time': '', 'perperator group': '', 'target': '', 'fatalities': '', 'injured': '', 'attack type': '', 'weapon type': '', });
+lyr_TerrorAttacks_3.set('fieldImages', {'fid': 'TextEdit', 'area': 'TextEdit', 'date & time': 'DateTime', 'perperator group': 'TextEdit', 'target': 'TextEdit', 'fatalities': 'Range', 'injured': 'Range', 'attack type': 'TextEdit', 'weapon type': 'TextEdit', });
 lyr_IndianOccupiedKashmir_1.set('fieldLabels', {'qc_id': 'no label', 'objectid': 'no label', 'province': 'no label', 'district': 'no label', 'shape_leng': 'no label', 'admin_unit': 'no label', 'shape_le_1': 'no label', 'shape_le_2': 'no label', 'shape_area': 'no label', });
 lyr_District_Boundary_2.set('fieldLabels', {'qc_id': 'no label', 'objectid': 'no label', 'province': 'no label', 'district': 'no label', 'shape_leng': 'no label', 'admin_unit': 'no label', 'shape_le_1': 'no label', 'shape_le_2': 'no label', 'shape_area': 'no label', });
-lyr_TerrorAttacks_3.set('fieldLabels', {'area': 'no label', 'date & time': 'no label', 'perperator group': 'no label', 'target': 'no label', 'fatalities': 'no label', 'injured': 'no label', 'attack type': 'no label', 'weapon type': 'no label', });
+lyr_TerrorAttacks_3.set('fieldLabels', {'fid': 'no label', 'area': 'no label', 'date & time': 'no label', 'perperator group': 'no label', 'target': 'no label', 'fatalities': 'no label', 'injured': 'no label', 'attack type': 'no label', 'weapon type': 'no label', });
 lyr_TerrorAttacks_3.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
