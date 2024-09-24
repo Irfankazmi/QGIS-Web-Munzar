@@ -66,7 +66,7 @@
                 async function checkForUpdates() {
                    // https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js
                   const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js');
-                  headers: { 'Cache-Control': 'no-cache' }
+                  //headers: { 'Cache-Control': 'no-cache' }
 
                   const commits = await response.json();
                   const latestCommit = commits[0].sha;
