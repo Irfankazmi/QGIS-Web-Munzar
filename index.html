@@ -65,7 +65,7 @@
 
 
   setInterval(function() {
-    fetch('https://raw.githubusercontent.com/Irfankazmi/QGIS-web-Munzar/resources/qgis2web.js') // URL to fetch the latest data
+    fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js') // URL to fetch the latest data
       .then(response => response.json())
       .then(data => {
         // Check if the data is updated
