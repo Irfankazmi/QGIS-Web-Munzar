@@ -69,7 +69,8 @@
           .then(data => {
             // Check if the data is updated
             if (isDataUpdated(data)) {
-              window.location.reload(); // Reload the page to reflect new data
+                alert('Data updated');
+                window.location.reload(); // Reload the page to reflect new data
             }
           });
       }, 10000); // Check every 10 seconds
