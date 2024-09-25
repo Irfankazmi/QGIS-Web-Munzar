@@ -64,15 +64,17 @@
         <script>
 
 setInterval(function() {
-    fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js') // URL to fetch the latest data
-      .then(response => response.json())
-      .then(data => {
-        // Check if the data is updated
-        if (isDataUpdated(data)) {
-          window.location.reload(); // Reload the page to reflect new data
-        }
-      });
-  }, 10000); // Check every 10 seconds
+  const url = 'https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js';
+  const cacheBuster = '?v=' + new Date().getTime(); // Adds a timestamp to prevent caching
+  fetch(url + cacheBuster) // Fetch the latest data
+    .then(response => response.json())
+    .then(data => {
+      if (isDataUpdated(data)) {
+        alert('Data updated');
+        window.location.reload(); // Reload the page to reflect new data
+      }
+    });
+}, 10000); // Check every 10 seconds
 
   function isDataUpdated(newData) {
     alert('Data updated');
