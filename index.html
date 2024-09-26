@@ -63,26 +63,55 @@
         <script src="./resources/qgis2web.js"></script>
         <script>
 
-  setInterval(function() {
-  const url = 'https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js';
+let latestCommitSHA = ''; // To store the last known commit SHA
+
+// Function to check the latest commit every 10 seconds
+setInterval(function() {
+  const commitUrl = 'https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits/main'; // API to get latest commit on the main branch
   const cacheBuster = '?v=' + new Date().getTime(); // Adds a timestamp to prevent caching
-  fetch(url + cacheBuster) // Fetch the latest data
+
+  fetch(commitUrl + cacheBuster) // Fetch the latest commit information
     .then(response => response.json())
     .then(data => {
-      if (isDataUpdated(data)) {
-        //alert('Data updated');
-        window.location.reload(); // Reload the page to reflect new data
+      const newCommitSHA = data.sha; // Extract the latest commit SHA
+
+      if (isCommitUpdated(newCommitSHA)) {
+        // If commit is updated, reload the page
+        window.location.reload();
       }
-    });
+    })
+    .catch(error => console.error('Error fetching commit data:', error));
 }, 10000); // Check every 10 seconds
 
-  function isDataUpdated(newData) {
+// Function to check if the commit has changed
+function isCommitUpdated(newCommitSHA) {
+  if (newCommitSHA !== latestCommitSHA) {
+    latestCommitSHA = newCommitSHA; // Update the stored SHA
+    return true; // Return true if the commit has changed
+  }
+  return false; // Return false if the commit is the same
+}
+
+  //setInterval(function() {
+  //const url = 'https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js';
+  //const cacheBuster = '?v=' + new Date().getTime(); // Adds a timestamp to prevent caching
+  //fetch(url + cacheBuster) // Fetch the latest data
+   // .then(response => response.json())
+    //.then(data => {
+      //if (isDataUpdated(data)) {
+        //alert('Data updated');
+        //window.location.reload(); // Reload the page to reflect new data
+      //}
+    //});
+//}, 10000); // Check every 10 seconds
+
+  //function isDataUpdated(newData) {
     //alert('Data updated');
     //window.location.reload();
     // Add logic to compare new data with the current data
     // Return true if data is updated, false otherwise
-    return true; // For now, always reload for testing
-  }
+    //return true; // For now, always reload for testing
+ // }
                 // Function to check for updates from GitHub
                 async function checkForUpdates() {
                // async function checkForUpdates() {
