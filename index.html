@@ -71,14 +71,14 @@
     .then(data => {
       if (isDataUpdated(data)) {
         //alert('Data updated');
-        //window.location.reload(); // Reload the page to reflect new data
+        window.location.reload(); // Reload the page to reflect new data
       }
     });
 }, 10000); // Check every 10 seconds
 
   function isDataUpdated(newData) {
     //alert('Data updated');
-    window.location.reload();
+    //window.location.reload();
     // Add logic to compare new data with the current data
     // Return true if data is updated, false otherwise
     return true; // For now, always reload for testing
