@@ -67,17 +67,15 @@ let latestCommitSHA = ''; // To store the last known commit SHA
 
 // Function to check the latest commit every 10 seconds
 setInterval(function() {
-  const commitUrl = 'https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits/main'; // API to get latest commit on the main branch
-  const cacheBuster = '?v=' + new Date().getTime(); // Adds a timestamp to prevent caching
+  const commitUrl = 'https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits/main'; // API to get the latest commit on the main branch
 
-  fetch(commitUrl + cacheBuster) // Fetch the latest commit information
+  fetch(commitUrl) // Fetch the latest commit information
     .then(response => response.json())
     .then(data => {
       const newCommitSHA = data.sha; // Extract the latest commit SHA
 
       if (isCommitUpdated(newCommitSHA)) {
-        // If commit is updated, reload the page
-        window.location.reload();
+        window.location.reload(); // Reload the page if the commit is updated
       }
     })
     .catch(error => console.error('Error fetching commit data:', error));
