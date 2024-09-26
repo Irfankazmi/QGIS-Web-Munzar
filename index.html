@@ -113,33 +113,33 @@ function isCommitUpdated(newCommitSHA) {
     //return true; // For now, always reload for testing
  // }
                 // Function to check for updates from GitHub
-                async function checkForUpdates() {
+               // async function checkForUpdates() {
                // async function checkForUpdates() {
                    // https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js
                    //https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits?path=layers/TerrorAttacksterror_attacks_3.js
 
-                  const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js');
-                  const commits = await response.json();
-                  const latestCommit = commits[0].sha;
+                //  const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js');
+                //  const commits = await response.json();
+                //  const latestCommit = commits[0].sha;
                 //  const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/contents?path=layers/TerrorAttacksterror_attacks_3.js');
                  // const commits = await response.json();
                 //  const latestCommit = commits[0].sha;
               
-                  if (localStorage.getItem('latestCommit') !== latestCommit) {
-                      localStorage.setItem('latestCommit', latestCommit);
+                //  if (localStorage.getItem('latestCommit') !== latestCommit) {
+                //      localStorage.setItem('latestCommit', latestCommit);
                  // if (localStorage.getItem('latestCommit') !== latestCommit) {
                  //     localStorage.setItem('latestCommit', latestCommit);
                       //reloadData();
-                      alert('Data updated');
-                      window.location.reload();
-                  }
-              }
+                 //     alert('Data updated');
+                 //     window.location.reload();
+                //  }
+            //  }
                  //     alert('Data updated');
                  //     window.location.reload();
                //   }
             //  }
               // Check for updates every 5 minutes
-              setInterval(checkForUpdates, 10000);
+             // setInterval(checkForUpdates, 10000);
            //   setInterval(checkForUpdates, 10000);
              
         </script>
