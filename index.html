@@ -65,10 +65,16 @@
         <script src="./resources/Autolinker.min.js"></script>
         <script src="./resources/qgis2web.js"></script>
         <script>
-           async function checkForUpdates() {
+   async function checkForUpdates() {
     try {
-        // Fetch the latest commits from the GitHub repository
-        const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits');
+        // Fetch the latest commits from the GitHub repository with cache disabled
+        const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits', {
+            method: 'GET',
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Pragma': 'no-cache'
+            }
+        });
         
         if (!response.ok) {
             console.error("Error fetching commits:", response.statusText);
