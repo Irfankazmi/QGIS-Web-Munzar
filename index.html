@@ -90,23 +90,19 @@ function playSound() {
         const currentCommit = localStorage.getItem('latestCommit');
 		
         // Compare the latest commit SHA with the stored one
-        if (!currentCommit) {
-		if(currentCommit != latestCommit){
-            // Save the new commit SHA to localStorage
-            localStorage.setItem('latestCommit', latestCommit);
+     if (!currentCommit || currentCommit !== latestCommit) {
+    // Save the new commit SHA to localStorage
+    localStorage.setItem('latestCommit', latestCommit);
 
-            // Play notification sound
-            playSound();
+    // Play notification sound
+    playSound();
 
-            // Trigger an alert and a page reload if a new commit is detected
-           
-		  
-           window.location.reload();  // Reloads the page
-		}
-
-        }
-	else{
-    localStorage.setItem('latestCommit', currentCommit) 
+    // Trigger an alert and a page reload if a new commit is detected
+    alert('New Data Detected...');
+    window.location.reload();  // Reloads the page
+	} else {
+    // If the commit hasn't changed, do nothing (optional)
+    console.log('No new updates.');
 	}
 			
         }
