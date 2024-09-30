@@ -114,9 +114,24 @@ function playSound() {
         console.error('An error occurred during the update check:', error);
     }
 }
-*/
 
-let isReloading = false; // To track if the page is already in the process of reloading
+// Set an interval to check for updates every 30 seconds (30000 milliseconds)
+setInterval(checkForUpdates, 30000); // Adjust the interval as needed
+
+
+
+// Check for updates every 10 seconds (10,000 milliseconds)
+	setInterval(checkForUpdates, 5000);
+	
+// Initial call to check for updates when the page loads
+	window.onload = function() {
+       playSound();
+	   //alert('New Data Detected...');
+       checkForUpdates();
+    };
+    */
+// To track if the page has already reloaded (stored in localStorage)
+let isReloading = localStorage.getItem('isReloading') === 'true';
 
 async function checkForUpdates() {
     try {
@@ -136,9 +151,17 @@ async function checkForUpdates() {
             if (latestRun.status === 'completed' && latestRun.conclusion === 'success') {
                 // Check if we already triggered a reload to avoid multiple reloads
                 if (!isReloading) {
-                    isReloading = true;  // Set flag to prevent further reloads
+                    // Set flag in localStorage to prevent further reloads
+                    localStorage.setItem('isReloading', 'true');
+                    isReloading = true;  // Update the flag in current session
+
+                    // Play notification sound
                     playSound();
-                    window.location.reload();  // Reload the page once
+
+                    // Reload the page after a short delay
+                    setTimeout(() => {
+                        window.location.reload();  // Reload the page once
+                    }, 1000);  // Adjust delay if needed
                 }
             } else {
                 console.log('Deployment still in progress or failed.');
@@ -150,20 +173,18 @@ async function checkForUpdates() {
     }
 }
 
-// Set an interval to check for updates every 30 seconds (30000 milliseconds)
-setInterval(checkForUpdates, 30000); // Adjust the interval as needed
+// Set an interval to check for updates every 30 seconds (30,000 milliseconds)
+setInterval(checkForUpdates, 30000);
+
+// Initial check for updates (on page load), without triggering a reload immediately
+window.onload = function () {
+    playSound();  // Optional: You can remove this if you don't need a sound on load
+    if (!isReloading) {
+        checkForUpdates();  // Only check for updates without reloading right away
+    }
+};
 
 
-
-// Check for updates every 10 seconds (10,000 milliseconds)
-	setInterval(checkForUpdates, 5000);
-	
-// Initial call to check for updates when the page loads
-	window.onload = function() {
-       playSound();
-	   //alert('New Data Detected...');
-       checkForUpdates();
-    };
     </script>
 </body>
 </html>
