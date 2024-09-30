@@ -85,11 +85,11 @@ function playSound() {
 
         const commits = await response.json();
         const latestCommit = commits[0].sha;
-		console.log(latestCommit);
-		console.log(currentCommit);
+	
         // Get the current saved commit from localStorage
         const currentCommit = localStorage.getItem('latestCommit');
-
+		console.log(latestCommit);
+		console.log(currentCommit);
         // Compare the latest commit SHA with the stored one
         if (!currentCommit || currentCommit !== latestCommit) {
             // Save the new commit SHA to localStorage
