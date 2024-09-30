@@ -101,7 +101,7 @@ function playSound() {
             playSound();
 
             // Trigger an alert and a page reload if a new commit is detected
-           alert('New Data Detected...');
+           
 		  
            window.location.reload();  // Reloads the page
 			
@@ -117,6 +117,7 @@ function playSound() {
 // Initial call to check for updates when the page loads
 	window.onload = function() {
        playSound();
+	   alert('New Data Detected...');
        checkForUpdates();
     };
     </script>
