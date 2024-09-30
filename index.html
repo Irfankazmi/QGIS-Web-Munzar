@@ -75,7 +75,7 @@ function playSound() {
 }
         async function checkForUpdates() {
     try {
-		console.log("checking for updates...");
+		
         // Fetch the latest commits from the GitHub repository
         const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits');
         if (!response.ok) {
@@ -85,7 +85,7 @@ function playSound() {
 
         const commits = await response.json();
         const latestCommit = commits[0].sha;
-
+		console.log("checking for updates...");
         // Get the current saved commit from localStorage
         const currentCommit = localStorage.getItem('latestCommit');
 
