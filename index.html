@@ -73,9 +73,8 @@ function playSound() {
         });
     }
 }
-        async function checkForUpdates() {
+    async function checkForUpdates() {
     try {
-		
         // Fetch the latest commits from the GitHub repository
         const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits');
         if (!response.ok) {
@@ -85,33 +84,31 @@ function playSound() {
 
         const commits = await response.json();
         const latestCommit = commits[0].sha;
-	
+
         // Get the current saved commit from localStorage
         const currentCommit = localStorage.getItem('latestCommit');
-		
+
         // Compare the latest commit SHA with the stored one
-     if (!currentCommit || currentCommit !== latestCommit) {
-    // Save the new commit SHA to localStorage
-    localStorage.setItem('latestCommit', latestCommit);
+        if (!currentCommit || currentCommit !== latestCommit) {
+            // Save the new commit SHA to localStorage
+            localStorage.setItem('latestCommit', latestCommit);
 
-    // Play notification sound
-    playSound();
+            // Play notification sound
+            playSound();
 
-    // Trigger an alert and a page reload if a new commit is detected
-    alert('New Data Detected...');
-    window.location.reload();  // Reloads the page
-	} else {
-    // If the commit hasn't changed, do nothing (optional)
-    console.log('No new updates.');
-	}
-			
+            // Trigger an alert and a page reload if a new commit is detected
+            alert('New Data Detected...');
+            window.location.reload();  // Reloads the page
+        } else {
+            // If the commit hasn't changed, do nothing (optional)
+            console.log('No new updates.');
         }
 
     } catch (error) {
-        console.error("Error checking for updates:", error);
+        // Catch block to handle any errors during the fetch or other operations
+        console.error('An error occurred during the update check:', error);
     }
 }
-
 // Check for updates every 10 seconds (10,000 milliseconds)
 	setInterval(checkForUpdates, 10000);
 	
