@@ -54,7 +54,7 @@
     <script src="./resources/functions.js"></script>
     <script src="./resources/ol.js"></script>
     <script src="./resources/ol-layerswitcher.js"></script>
-    <script src="layers/TerrorAttacksterror_attacks_1.js?v=1.0.11"></script>
+    <script src="layers/TerrorAttacksterror_attacks_1.js?v=1.0.5"></script>
     <script src="styles/TerrorAttacksterror_attacks_1_style.js"></script>
     <script src="./layers/layers.js" type="text/javascript"></script> 
     <script src="./resources/Autolinker.min.js"></script>
@@ -74,7 +74,7 @@ function playSound() {
     }
 }
 
-/*
+
     async function checkForUpdates() {
     try {
         // Fetch the latest commits from the GitHub repository
@@ -101,12 +101,11 @@ function playSound() {
             // Trigger an alert and a page reload if a new commit is detected
             //alert('New Data Detected...');
             window.location.reload();  // Reloads the page
-           debugger
+            console.log("posting");
 
         } else {
             // If the commit hasn't changed, do nothing (optional)
             console.log('No new updates.');
-            debugger
         }
 
     } catch (error) {
@@ -129,61 +128,9 @@ setInterval(checkForUpdates, 30000); // Adjust the interval as needed
 	   //alert('New Data Detected...');
        checkForUpdates();
     };
-    */
+    
 // To track if the page has already reloaded (stored in localStorage)
 // To track if the page has already reloaded (stored in localStorage)
-let isReloading = localStorage.getItem('isReloading') === 'true';
-
-async function checkForUpdates() {
-    try {
-        // Fetch the latest workflow runs from the GitHub repository
-        const workflowResponse = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/actions/runs');
-        if (!workflowResponse.ok) {
-            console.error("Error fetching workflow runs:", workflowResponse.statusText);
-            return;
-        }
-
-        const workflowData = await workflowResponse.json();
-
-        if (workflowData.workflow_runs && workflowData.workflow_runs.length > 0) {
-            const latestRun = workflowData.workflow_runs[0];
-
-            // Check if the latest workflow run is completed and successful
-            if (latestRun.status === 'completed' && latestRun.conclusion === 'success') {
-                // Check if we already triggered a reload to avoid multiple reloads
-                if (!isReloading) {
-                    // Set flag in localStorage to prevent further reloads
-                    localStorage.setItem('isReloading', 'true');
-                    isReloading = true;  // Update the flag in the current session
-
-                    // Play notification sound
-                    playSound();
-
-                    // Reload the page after a short delay
-                    setTimeout(() => {
-                        window.location.reload();  // Reload the page once
-                    }, 1000);  // Adjust delay if needed
-                }
-            } else {
-                console.log('Deployment still in progress or failed.');
-            }
-        }
-
-    } catch (error) {
-        console.error('An error occurred while checking workflow status:', error);
-    }
-}
-
-// Set an interval to check for updates every 30 seconds (30,000 milliseconds)
-setInterval(checkForUpdates, 30000);
-
-// Initial check for updates (on page load), without triggering a reload immediately
-window.onload = function () {
-    // Reset the flag after the page reloads, so it can reload again next time
-    localStorage.setItem('isReloading', 'false');  // Reset flag on load
-    playSound();  // Optional: You can remove this if you don't need a sound on load
-    checkForUpdates();  // Always check for updates on page load
-};
 
 
     </script>
