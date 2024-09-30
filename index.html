@@ -145,9 +145,11 @@ async function checkForVersionUpdates() {
 
         // Compare the latest version with the stored one
         if (currentVersion !== latestVersion) {
+            console.log(currentVersion);
+            console.log(latestVersion);
             // Save the new version to localStorage
             localStorage.setItem('latestVersion', latestVersion);
-
+            
             // Play notification sound
             playSound();
 
