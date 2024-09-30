@@ -127,7 +127,6 @@ setInterval(checkForUpdates, 30000); // Adjust the interval as needed
 // To track if the page has already reloaded (stored in localStorage)
 // To track if the page has already reloaded (stored in localStorage)
 */
-/*
 async function checkForVersionUpdates() {
     try {
         // Use a cache-busting parameter by appending a timestamp to the URL
@@ -169,58 +168,14 @@ async function checkForVersionUpdates() {
 }
 
 // Set an interval to check for updates every 5 seconds
-setInterval(checkForVersionUpdates, 5000);
+setInterval(checkForVersionUpdates, 20000);
 
 // Initial call to check for version updates when the page loads
 window.onload = function() {
    playSound();
    checkForVersionUpdates();
 };
-*/
 
-let isChecking = false;
-
-async function checkForVersionUpdates() {
-    if (isChecking) return; // Prevent multiple simultaneous checks
-    isChecking = true; // Set checking status
-
-    try {
-        const url = 'https://raw.githubusercontent.com/Irfankazmi/QGIS-web-Munzar/main/version.json?' + new Date().getTime();
-
-        const response = await fetch(url);
-        if (!response.ok) {
-            console.error("Error fetching version:", response.statusText);
-            return;
-        }
-
-        const data = await response.json();
-        const latestVersion = data.version;
-        console.log(latestVersion);
-
-        const currentVersion = localStorage.getItem('latestVersion');
-        console.log(currentVersion);
-
-        if (!currentVersion || currentVersion !== latestVersion) {
-            localStorage.setItem('latestVersion', latestVersion);
-            playSound();
-            window.location.reload();
-            console.log("New version detected, reloading page...");
-        } else {
-            console.log('No new version.');
-        }
-
-    } catch (error) {
-        console.error('An error occurred during the version check:', error);
-    } finally {
-        isChecking = false; // Reset checking status
-    }
-}
-
-setInterval(checkForVersionUpdates, 20000);
-window.onload = function() {
-   playSound();
-   checkForVersionUpdates();
-};
 
     </script>
 </body>
