@@ -118,6 +118,7 @@ function playSound() {
 // Initial call to check for updates when the page loads
 	window.onload = function() {
        playSound();
+	   window.location.reload();  // Reloads the page
         checkForUpdates();
     };
     </script>
