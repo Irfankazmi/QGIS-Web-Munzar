@@ -144,7 +144,7 @@ async function checkForVersionUpdates() {
         const currentVersion = localStorage.getItem('latestVersion');
 
         // Compare the latest version with the stored one
-        if (!currentVersion || currentVersion !== latestVersion) {
+        if (currentVersion !== latestVersion) {
             // Save the new version to localStorage
             localStorage.setItem('latestVersion', latestVersion);
 
