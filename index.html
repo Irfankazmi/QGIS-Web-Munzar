@@ -116,6 +116,8 @@ function playSound() {
 }
 */
 
+let isReloading = false; // To track if the page is already in the process of reloading
+
 async function checkForUpdates() {
     try {
         // Fetch the latest workflow runs from the GitHub repository
@@ -126,28 +128,30 @@ async function checkForUpdates() {
         }
 
         const workflowData = await workflowResponse.json();
-        
+
         if (workflowData.workflow_runs && workflowData.workflow_runs.length > 0) {
             const latestRun = workflowData.workflow_runs[0];
-            
+
             // Check if the latest workflow run is completed and successful
             if (latestRun.status === 'completed' && latestRun.conclusion === 'success') {
-                
-                // Play notification sound
-                playSound();
-                
-                // Reload the page
-                window.location.reload();
+                // Check if we already triggered a reload to avoid multiple reloads
+                if (!isReloading) {
+                    isReloading = true;  // Set flag to prevent further reloads
+                    playSound();
+                    window.location.reload();  // Reload the page once
+                }
             } else {
                 console.log('Deployment still in progress or failed.');
             }
         }
-        
+
     } catch (error) {
         console.error('An error occurred while checking workflow status:', error);
     }
 }
 
+// Set an interval to check for updates every 30 seconds (30000 milliseconds)
+setInterval(checkForUpdates, 30000); // Adjust the interval as needed
 
 
 
