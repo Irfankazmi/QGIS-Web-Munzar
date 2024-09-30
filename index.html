@@ -215,6 +215,8 @@ async function checkForVersionUpdates() {
         isChecking = false; // Reset checking status
     }
 }
+
+setInterval(checkForVersionUpdates, 20000);
 window.onload = function() {
    playSound();
    checkForVersionUpdates();
