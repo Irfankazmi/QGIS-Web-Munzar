@@ -99,12 +99,12 @@ function playSound() {
             localStorage.setItem('latestCommit', latestCommit);
 
             // Play notification sound
-           
+            playSound();
 
             // Trigger an alert and a page reload if a new commit is detected
-           // alert('New commit detected, reloading the page...');
-		   playSound();
-            window.location.reload();  // Reloads the page
+           alert('New Data Detected...');
+		  
+           window.location.reload();  // Reloads the page
 			
         }
     } catch (error) {
