@@ -81,11 +81,7 @@ function playSound() {
 		console.log("checking for updates...");
         // Fetch the latest commits from the GitHub repository
         const response = await fetch('https://api.github.com/repos/Irfankazmi/QGIS-web-Munzar/commits', {
-        cache: "no-store"
-    });
-    // rest of your code...
-}, 5000);
-        
+
         if (!response.ok) {
             console.error("Error fetching commits:", response.statusText);
             return;
