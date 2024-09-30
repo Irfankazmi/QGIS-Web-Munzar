@@ -85,7 +85,8 @@ function playSound() {
 
         const commits = await response.json();
         const latestCommit = commits[0].sha;
-		console.log("checking for updates...");
+		console.log(latestCommit);
+		console.log(currentCommit);
         // Get the current saved commit from localStorage
         const currentCommit = localStorage.getItem('latestCommit');
 
@@ -110,7 +111,7 @@ function playSound() {
 }
 
 // Check for updates every 10 seconds (10,000 milliseconds)
-	setInterval(checkForUpdates, 3000);
+	setInterval(checkForUpdates, 10000);
 	
 // Initial call to check for updates when the page loads
 	window.onload = function() {
