@@ -38,7 +38,7 @@ lyr_GoogleStandardMap_0.setVisible(true);lyr_TerrorAttacksterror_attacks_1.setVi
 var layersList = [lyr_GoogleStandardMap_0,lyr_TerrorAttacksterror_attacks_1];
 lyr_TerrorAttacksterror_attacks_1.set('fieldAliases', {'fid': 'fid', 'area': 'area', });
 lyr_TerrorAttacksterror_attacks_1.set('fieldImages', {'fid': 'TextEdit', 'area': 'TextEdit', });
-lyr_TerrorAttacksterror_attacks_1.set('fieldLabels', {'fid': 'no label', 'area': 'no label', });
+lyr_TerrorAttacksterror_attacks_1.set('fieldLabels', {'fid': 'hidden field', 'area': 'inline label - always visible', });
 lyr_TerrorAttacksterror_attacks_1.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
