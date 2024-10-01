@@ -139,14 +139,8 @@ async function checkForVersionUpdates() {
         // Fetch the version.json file with Cache-Control header to avoid caching
         // const response = await fetch(url);
         const response = await fetch('layers/version.json', { cache: 'no-store' }).then(res => res.json());
-
         console.log(response,"manzar");
-
-        // Parse the JSON response
-        const data = await response.json();
-        console.log(data);
-
-        const latestVersion = data.version;
+        const latestVersion = response.version;
         console.log(latestVersion);
 
         // Get the current saved version from localStorage
