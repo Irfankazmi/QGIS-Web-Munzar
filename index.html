@@ -131,7 +131,7 @@ setInterval(checkForUpdates, 30000); // Adjust the interval as needed
 async function checkForVersionUpdates() {
     try {
         // Use a cache-busting parameter by appending a timestamp to the URL
-        const url = 'https://raw.githubusercontent.com/Irfankazmi/QGIS-web-Munzar/main/version.json?' + new Date().getTime();
+        const url = 'https://raw.githubusercontent.com/Irfankazmi/QGIS-web-Munzar/main/version.json?';// + new Date().getTime();
 
         // Fetch the version.json file from the GitHub repository
         const response = await fetch(url);
@@ -170,7 +170,7 @@ async function checkForVersionUpdates() {
 }
 
 // Set an interval to check for updates every 5 seconds
-setInterval(checkForVersionUpdates, 3000);
+setInterval(checkForVersionUpdates, 2000);
 
 // Initial call to check for version updates when the page loads
 window.onload = function() {
