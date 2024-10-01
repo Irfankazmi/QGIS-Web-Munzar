@@ -134,9 +134,8 @@ let currentVersion = null;
 async function checkForVersionUpdates() {
     try {
         const versionData = await fetch('layers/version.json', { cache: 'no-store' }).then(res => res.json());
-        debugger
         if (currentVersion && versionData.version !== currentVersion) {
-            console.log('New data version detected. Reloading map data...');
+            console.log('New data version detected. Reloading map data...', versionData.version);
             
             // Play notification sound
             playSound();
