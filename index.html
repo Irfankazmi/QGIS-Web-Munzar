@@ -131,7 +131,7 @@ setInterval(checkForUpdates, 30000); // Adjust the interval as needed
 async function checkForVersionUpdates() {
     try {
         // URL for fetching the version.json file from the GitHub repository
-        const url = 'https://raw.githubusercontent.com/Irfankazmi/QGIS-web-Munzar/main/version.json';
+        const url = 'https://raw.githubusercontent.com/Irfankazmi/QGIS-web-Munzar/main/version.json' + new Date().getTime();
 
         // Fetch the version.json file with Cache-Control header to avoid caching
         const response = await fetch(url);
