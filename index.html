@@ -128,51 +128,27 @@ setInterval(checkForUpdates, 30000); // Adjust the interval as needed
 // To track if the page has already reloaded (stored in localStorage)
 */
 
+let currentVersion = null;
+
+// Function to check for updates
 async function checkForVersionUpdates() {
     try {
-        // URL for fetching the version.json file from the GitHub repository
-        const url = 'https://raw.githubusercontent.com/Irfankazmi/QGIS-web-Munzar/main/version.json?';
-
-        // Fetch the version.json file with Cache-Control header to avoid caching
-        const response = await fetch(url);
-debugger
-        if (!response.ok) {
-            console.error("Error fetching version:", response.statusText);
-            return;
-        }
-
-        console.log(response);
-
-        // Parse the JSON response
-        const data = await response.json();
-        console.log(data);
-
-        const latestVersion = data.version;
-        console.log(latestVersion);
-
-        // Get the current saved version from localStorage
-        const currentVersion = localStorage.getItem('latestVersion');
-        console.log(currentVersion);
-
-        // Compare the latest version with the stored one
-        if (!currentVersion || currentVersion !== latestVersion) {
-            // Save the new version to localStorage
-            localStorage.setItem('latestVersion', latestVersion);
-
+        const versionData = await fetch('layers/version.json', { cache: 'no-store' }).then(res => res.json());
+        debugger
+        if (currentVersion && versionData.version !== currentVersion) {
+            console.log('New data version detected. Reloading map data...');
+            
             // Play notification sound
             playSound();
 
             // Reload the page if a new version is detected
             window.location.reload();
-            console.log("New version detected, reloading page...");
-
-        } else {
-            // If the version hasn't changed, do nothing
-            console.log('No new version.');
+            currentVersion = versionData.version;
+        } else if (!currentVersion) {
+            currentVersion = versionData.version;
         }
-
     } catch (error) {
-        console.error('An error occurred during the version check:', error);
+        console.error('Error checking for updates:', error);
     }
 }
 
