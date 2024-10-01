@@ -25,8 +25,14 @@ var lyr_TerrorAttacksterror_attacks_1 = new ol.layer.Vector({
                 style: style_TerrorAttacksterror_attacks_1,
                 popuplayertitle: "Terror Attacks — terror_attacks",
                 interactive: true,
-                title: '<img src="styles/legend/TerrorAttacksterror_attacks_1.png" /> Terror Attacks — terror_attacks'
-            });
+    title: 'Terror Attacks — terror_attacks<br />\
+    <img src="styles/legend/TerrorAttacksterror_attacks_1_0.png" /> Multan<br />\
+    <img src="styles/legend/TerrorAttacksterror_attacks_1_1.png" /> dsfsdf<br />\
+    <img src="styles/legend/TerrorAttacksterror_attacks_1_2.png" /> fgdg<br />\
+    <img src="styles/legend/TerrorAttacksterror_attacks_1_3.png" /> Hyderabad<br />\
+    <img src="styles/legend/TerrorAttacksterror_attacks_1_4.png" /> Lahore<br />\
+    <img src="styles/legend/TerrorAttacksterror_attacks_1_5.png" /> <br />'
+        });
 
 lyr_GoogleStandardMap_0.setVisible(true);lyr_TerrorAttacksterror_attacks_1.setVisible(true);
 var layersList = [lyr_GoogleStandardMap_0,lyr_TerrorAttacksterror_attacks_1];
