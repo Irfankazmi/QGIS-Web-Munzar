@@ -127,6 +127,7 @@ setInterval(checkForUpdates, 30000); // Adjust the interval as needed
 // To track if the page has already reloaded (stored in localStorage)
 // To track if the page has already reloaded (stored in localStorage)
 */
+
 async function checkForVersionUpdates() {
     try {
         // Use a cache-busting parameter by appending a timestamp to the URL
@@ -168,14 +169,13 @@ async function checkForVersionUpdates() {
 }
 
 // Set an interval to check for updates every 5 seconds
-setInterval(checkForVersionUpdates, 20000);
+setInterval(checkForVersionUpdates, 60000);
 
 // Initial call to check for version updates when the page loads
 window.onload = function() {
    playSound();
    checkForVersionUpdates();
 };
-
 
     </script>
 </body>
