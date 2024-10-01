@@ -93,7 +93,6 @@ async function checkForVersionUpdates() {
             playSound();
 
             // Reload the page if a new version is detected
-            fetchVersionAndUpdateScripts()
             window.location.reload();
             console.log("New version detected, reloading page...");
 
