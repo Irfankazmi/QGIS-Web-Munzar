@@ -135,7 +135,7 @@ async function checkForVersionUpdates() {
 
         // Fetch the version.json file with Cache-Control header to avoid caching
         const response = await fetch(url);
-
+debugger
         if (!response.ok) {
             console.error("Error fetching version:", response.statusText);
             return;
