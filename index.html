@@ -108,14 +108,9 @@ async function checkForVersionUpdates() {
     }
 }
 
- //Set an interval to check for updates every 5 seconds
+//Set an interval to check for updates every 5 seconds
 setInterval(checkForVersionUpdates, 3000);
 
-// Initial call to check for version updates when the page loads
-window.onload = function() {
-   playSound(); 
-   checkForVersionUpdates();
-};
 
 var oldscript="layers/TerrorAttacksterror_attacks_1.js";
 oldscript=parts[0]+"?v=" + currentVersion;
@@ -124,6 +119,15 @@ $.getScript(oldscript);
 var oldscript="styles/TerrorAttacksterror_attacks_1_style.js";
 oldscript=parts[0]+"?v=" + currentVersion;
 $.getScript(oldscript);
+
+
+// Initial call to check for version updates when the page loads
+window.onload = function() {
+   playSound(); 
+   checkForVersionUpdates();
+};
+
+
 
     </script>
 </body>
