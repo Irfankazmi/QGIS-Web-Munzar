@@ -42,6 +42,9 @@
     <title></title>
 </head>
 <body>
+    <div>
+        <textarea id="currentVersionTxt">Location added in Map</textarea>
+    </div>
     <div id="map">
         <div id="popup" class="ol-popup">
             <a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -78,7 +81,7 @@ async function checkForVersionUpdates() {
     try {
         const response = await fetch('version.json', { cache: 'no-store' }).then(res => res.json());
         const latestVersion = response.version;
-
+        //document.getElementById("currentVersionTxt").value=currentVersion;
         // Get the current saved version from localStorage
         const currentVersion = localStorage.getItem('latestVersion');
         console.log(currentVersion);
