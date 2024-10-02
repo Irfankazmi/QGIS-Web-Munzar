@@ -91,21 +91,12 @@ async function checkForVersionUpdates() {
             // Save the new version to localStorage
             localStorage.setItem('latestVersion', latestVersion);
 
-            
             // Play notification sound
             playSound();
 
             // Reload the page if a new version is detected
             window.location.reload();
             console.log("New version detected, reloading page...");
-
-            var oldscript="layers/TerrorAttacksterror_attacks_1.js";
-            oldscript=parts[0]+"?v=" + currentVersion;
-            $.getScript(oldscript);
-
-            var oldscript="styles/TerrorAttacksterror_attacks_1_style.js";
-            oldscript=parts[1]+"?v=" + currentVersion;
-            $.getScript(oldscript);
 
         } else {
             // If the version hasn't changed, do nothing
@@ -117,15 +108,8 @@ async function checkForVersionUpdates() {
     }
 }
 
-
-
-
-
-//Set an interval to check for updates every 5 seconds
+ //Set an interval to check for updates every 5 seconds
 setInterval(checkForVersionUpdates, 3000);
-
-
-
 
 // Initial call to check for version updates when the page loads
 window.onload = function() {
@@ -133,7 +117,13 @@ window.onload = function() {
    checkForVersionUpdates();
 };
 
+var oldscript="layers/TerrorAttacksterror_attacks_1.js";
+oldscript=parts[0]+"?v=" + currentVersion;
+$.getScript(oldscript);
 
+var oldscript="styles/TerrorAttacksterror_attacks_1_style.js";
+oldscript=parts[1]+"?v=" + currentVersion;
+$.getScript(oldscript);
 
     </script>
 </body>
