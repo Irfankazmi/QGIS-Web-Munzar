@@ -42,9 +42,62 @@
     <title></title>
 </head>
 <body>
-    <div>
-        <textarea id="currentVersionTxt">Location added in Map</textarea>
-    </div>
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GEOINT WebApp Pilot Testing</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                background-color: #f0f0f0;
+            }
+    
+            /* Styling for the map to ensure it occupies full space */
+            #map {
+                height: 100vh;
+                width: 100%;
+            }
+    
+            .top-center-box {
+                background-color: #4CAF50; /* Green background */
+                color: white;
+                padding: 20px;
+                font-size: 24px;
+                font-weight: bold;
+                border-radius: 8px;
+                text-align: center;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 9999; /* High z-index to appear above map */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-center-box">
+            GEOINT WEB PILOT TESTING
+        </div>
+    
+        <!-- QGIS web map container -->
+        <div id="map"></div>
+    
+        <!-- Include your OpenLayers or QGIS web map script below -->
+        <script>
+            // Your OpenLayers or QGIS map script goes here
+        </script>
+    </body>
+    </html>
+
+
+
+
     <div id="map">
         <div id="popup" class="ol-popup">
             <a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -57,7 +110,7 @@
     <script src="./resources/functions.js"></script>
     <script src="./resources/ol.js"></script>
     <script src="./resources/ol-layerswitcher.js"></script>
-    <script src="layers/TerrorAttacksterror_attacks_1.js?v=1.0.3"></script>
+    <script src="layers/TerrorAttacksterror_attacks_1.js?v=1.0.4"></script>
     <script src="styles/TerrorAttacksterror_attacks_1_style.js"></script>
     <script src="./layers/layers.js" type="text/javascript"></script> 
     <script src="./resources/Autolinker.min.js"></script>
