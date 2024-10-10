@@ -22,7 +22,7 @@ var style_protests_3 = function(feature, resolution){
     }
     var style = [ new ol.style.Style({
         image: new ol.style.RegularShape({radius: 14.4 + size, points: 5,
-            radius2: 7.2, stroke: new ol.style.Stroke({color: 'rgba(255,0,0,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0.76}), fill: new ol.style.Fill({color: 'rgba(255,0,0,1.0)'})}),
+            radius2: 7.2, stroke: new ol.style.Stroke({color: 'rgba(255,0,0,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0.76}), fill: new ol.style.Fill({color: 'rgba(255,145,1,1.0)'})}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
