@@ -38,11 +38,16 @@
             padding: 0;
             margin: 0;
         }
+
     </style>
     <title></title>
 </head>
 <body>
 
+
+
+
+    
 
     <head>
         <meta charset="UTF-8">
@@ -99,8 +104,6 @@
 
 
 
-
-
     <div id="map">
         <div id="popup" class="ol-popup">
             <a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -142,8 +145,7 @@ async function checkForVersionUpdates() {
     try {
         const response = await fetch('version.json').then(res => res.json());//, { cache: 'no-store' })
         const latestVersion = response.version;
-        //document.getElementById("currentVersionTxt").value=currentVersion;
-        // Get the current saved version from localStorage
+       
         const currentVersion = localStorage.getItem('latestVersion');
         console.log(currentVersion);
 
@@ -207,15 +209,7 @@ window.onload = function() {
    playSound(); 
    checkForVersionUpdates();
 };
-/*
-var oldscript="layers/TerrorAttacksterror_attacks_1.js";
-oldscript=parts[0]+"?v=" + currentVersion;
-$.getScript(oldscript);
 
-var oldscript="styles/TerrorAttacksterror_attacks_1_style.js";
-oldscript=parts[1]+"?v=" + currentVersion;
-$.getScript(oldscript);
-*/
-    </script>
+</script>
 </body>
 </html>
