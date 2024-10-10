@@ -1,7 +1,7 @@
 var size = 0;
 var placement = 'point';
 
-var style_District_Boundary_1 = function(feature, resolution){
+var style_protests_3 = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
@@ -21,7 +21,8 @@ var style_District_Boundary_1 = function(feature, resolution){
         labelText = String("");
     }
     var style = [ new ol.style.Style({
-        stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0.988}),fill: new ol.style.Fill({color: 'rgba(10,248,236,0.19607843137254902)'}),
+        image: new ol.style.RegularShape({radius: 14.4 + size, points: 5,
+            radius2: 7.2, stroke: new ol.style.Stroke({color: 'rgba(255,0,0,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0.76}), fill: new ol.style.Fill({color: 'rgba(255,0,0,1.0)'})}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
