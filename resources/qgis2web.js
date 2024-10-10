@@ -9,7 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([5759789.363975, 772135.626380, 10951579.910621, 5797902.441226], map.getSize());
+map.getView().fit([6339851.399485, 2176132.692798, 8988724.127361, 4073784.579529], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -837,6 +837,12 @@ if (elementToMove && parentElement) {
 
 //layerswitcher
 
+var layerSwitcher = new ol.control.LayerSwitcher({
+    tipLabel: "Layers",
+    target: 'top-right-container'
+});
+map.addControl(layerSwitcher);
+    
 
 
 
