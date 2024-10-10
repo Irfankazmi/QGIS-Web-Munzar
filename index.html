@@ -140,7 +140,7 @@ function playSound() {
 }
 async function checkForVersionUpdates() {
     try {
-        const response = await fetch('version.json', { cache: 'no-store' }).then(res => res.json());
+        const response = await fetch('version.json');//, { cache: 'no-store' }).then(res => res.json());
         const latestVersion = response.version;
         //document.getElementById("currentVersionTxt").value=currentVersion;
         // Get the current saved version from localStorage
