@@ -38,6 +38,7 @@
             padding: 0;
             margin: 0;
         }
+
     </style>
     <title></title>
 </head>
@@ -81,6 +82,8 @@
         </style>
     </head>
     <body>
+	
+	
         <div class="top-center-box">
             GEOINT WEB PILOT TESTING
         </div>
@@ -98,20 +101,31 @@
 
 
 
+
     <div id="map">
         <div id="popup" class="ol-popup">
             <a href="#" id="popup-closer" class="ol-popup-closer"></a>
             <div id="popup-content"></div>
         </div>
     </div>
+
     <audio id="notificationSound" src="Sound/notisound.mp3" preload="auto" controls></audio>
     <script src="resources/qgis2web_expressions.js"></script>
     <script src="resources/polyfills.js"></script>
     <script src="./resources/functions.js"></script>
     <script src="./resources/ol.js"></script>
     <script src="./resources/ol-layerswitcher.js"></script>
-    <script src="layers/PoliticalEvents_1.js?v=1.0.11"></script><script src="layers/TerrorAttacks_2.js?v=1.0.11"></script>
+<<<<<<< HEAD
+    <script src="layers/PoliticalEvents_1.js?v=1.0.12"></script><script src="layers/TerrorAttacks_2.js?v=1.0.12"></script>
     <script src="styles/PoliticalEvents_1_style.js"></script><script src="styles/TerrorAttacks_2_style.js"></script>
+=======
+    <script src="layers/District_Boundary_1.js"></script>
+
+    <script src="layers/terror_attacks_2.js"></script>
+    <script src="layers/protests_3.js"></script>
+
+    <script src="styles/District_Boundary_1_style.js"></script><script src="styles/terror_attacks_2_style.js"></script><script src="styles/protests_3_style.js"></script>
+>>>>>>> 2fd1d84523a9549aa74d55765c7537df40e816ee
     <script src="./layers/layers.js" type="text/javascript"></script> 
     <script src="./resources/Autolinker.min.js"></script>
     <script src="./resources/qgis2web.js"></script>
@@ -132,10 +146,9 @@ function playSound() {
 }
 async function checkForVersionUpdates() {
     try {
-        const response = await fetch('version.json', { cache: 'no-store' }).then(res => res.json());
+        const response = await fetch('version.json', { cache: 'no-store' }).then(res => res.json());//, { cache: 'no-store' })
         const latestVersion = response.version;
-        //document.getElementById("currentVersionTxt").value=currentVersion;
-        // Get the current saved version from localStorage
+       
         const currentVersion = localStorage.getItem('latestVersion');
         console.log(currentVersion);
 
@@ -161,6 +174,36 @@ async function checkForVersionUpdates() {
     }
 }
 
+function updateScriptVersion(version) {
+    const scriptsToUpdate = [
+        "layers/terror_attacks_2.js",
+        "styles/terror_attacks_2_style.js",
+        "./layers/layers.js"
+    ];
+
+    scriptsToUpdate.forEach((src) => {
+        const scriptTag = document.createElement('script');
+        scriptTag.src = `${src}?v=${version}`;
+        document.body.appendChild(scriptTag);
+    });
+}
+
+function updateScriptVersion(version) {
+    const scriptsToUpdate = [
+        "layers/protests_3.js",
+        "styles/protests_3_style.js",
+        "./layers/layers.js"
+    ];
+
+    scriptsToUpdate.forEach((src) => {
+        const scriptTag = document.createElement('script');
+        scriptTag.src = `${src}?v=${version}`;
+        document.body.appendChild(scriptTag);
+    });
+}
+
+
+
  //Set an interval to check for updates every 5 seconds
 setInterval(checkForVersionUpdates, 3000);
 
@@ -169,15 +212,7 @@ window.onload = function() {
    playSound(); 
    checkForVersionUpdates();
 };
-/*
-var oldscript="layers/TerrorAttacksterror_attacks_1.js";
-oldscript=parts[0]+"?v=" + currentVersion;
-$.getScript(oldscript);
 
-var oldscript="styles/TerrorAttacksterror_attacks_1_style.js";
-oldscript=parts[1]+"?v=" + currentVersion;
-$.getScript(oldscript);
-*/
-    </script>
+</script>
 </body>
 </html>

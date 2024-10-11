@@ -1,7 +1,7 @@
 var size = 0;
 var placement = 'point';
 
-var style_District_Boundary_1 = function(feature, resolution){
+var style_TerrorAttacks_1_2 = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
@@ -21,7 +21,8 @@ var style_District_Boundary_1 = function(feature, resolution){
         labelText = String("");
     }
     var style = [ new ol.style.Style({
-        stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0.988}),fill: new ol.style.Fill({color: 'rgba(10,248,236,0.19607843137254902)'}),
+        image: new ol.style.Circle({radius: 8.0 + size,
+            stroke: new ol.style.Stroke({color: 'rgba(128,17,25,0.97)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 1.52}), fill: new ol.style.Fill({color: 'rgba(219,30,42,0.97)'})}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
