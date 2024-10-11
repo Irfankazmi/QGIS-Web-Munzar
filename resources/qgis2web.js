@@ -9,11 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-<<<<<<< HEAD
-map.getView().fit([7880966.965040, 3825774.712952, 8264264.301394, 4096624.589703], map.getSize());
-=======
-map.getView().fit([3572943.170754, 1687595.425020, 12532224.992919, 6307852.866944], map.getSize());
->>>>>>> 2fd1d84523a9549aa74d55765c7537df40e816ee
+map.getView().fit([7240112.652938, 2328433.950014, 10076225.271073, 4310818.790241], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -460,6 +456,23 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 
 
 //layerswitcher
+
+var layerSwitcher = new ol.control.LayerSwitcher({
+    activationMode: 'click',
+	startActive: true,
+	tipLabel: "Layers",
+    target: 'top-right-container',
+	collapseLabel: '»',
+	collapseTipLabel: 'Close'
+    });
+map.addControl(layerSwitcher);
+if (hasTouchScreen || isSmallScreen) {
+	document.addEventListener('DOMContentLoaded', function() {
+		setTimeout(function() {
+			layerSwitcher.hidePanel();
+		}, 500);
+	});	
+}
 
 
 
