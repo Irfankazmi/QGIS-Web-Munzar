@@ -119,7 +119,7 @@
 
     <script src="layers/TerrorAttacks_2.js"></script>
     <script src="layers/PoliticalEvents_3.js"></script>
-    
+
     <script src="styles/PakistanDistricts_1_style.js"></script>
     <script src="styles/TerrorAttacks_2_style.js"></script>
     <script src="styles/PoliticalEvents_3_style.js"></script>
@@ -189,6 +189,19 @@ function updateScriptVersion(version) {
     const scriptsToUpdate = [
         "layers/PoliticalEvents_3.js",
         "styles/PoliticalEvents_3_style.js",
+        "./layers/layers.js"
+    ];
+
+    scriptsToUpdate.forEach((src) => {
+        const scriptTag = document.createElement('script');
+        scriptTag.src = `${src}?v=${version}`;
+        document.body.appendChild(scriptTag);
+    });
+}
+
+function updateScriptVersion(version) {
+    const scriptsToUpdate = [
+        "./resources/qgis2web.js",
         "./layers/layers.js"
     ];
 
