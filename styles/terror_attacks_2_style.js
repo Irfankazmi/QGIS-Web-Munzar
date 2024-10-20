@@ -1,7 +1,7 @@
 var size = 0;
 var placement = 'point';
 
-var style_Terror_Attacks_2 = function(feature, resolution){
+var style_terror_attacks_2 = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
