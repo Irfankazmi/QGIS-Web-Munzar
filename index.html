@@ -167,24 +167,7 @@ async function checkForVersionUpdates() {
     }
 }
 
-function updateScriptVersion(version) {
-    const scriptsToUpdate = [
-        { selector: 'script[src="layers/terror_attacks_2.js"]', src: "layers/terror_attacks_2.js" },
-        { selector: 'script[src="styles/terror_attacks_2_style.js"]', src: "styles/terror_attacks_2_style.js" }
-    ];
-
-    scriptsToUpdate.forEach(({ selector, src }) => {
-        const existingScriptTag = document.querySelector(selector);
-        if (existingScriptTag) {
-            // Update the src with the new version
-            existingScriptTag.src = `${src}?v=${version}`;
-            console.log(`Updated ${src} to version ${version}`);
-        }
-    });
-}
-
-/*
-function updateScriptVersion(version) {
+function updateScriptVersion(currentVersion) {
     const scriptsToUpdate = [
         "layers/terror_attacks_2.js",
         "styles/terror_attacks_2_style.js",
@@ -192,7 +175,7 @@ function updateScriptVersion(version) {
 
     scriptsToUpdate.forEach((src) => {
         const scriptTag = document.createElement('script');
-        scriptTag.src = `${src}?v=${version}`;
+        scriptTag.src = `${src}?v=${currentVersion}`;
         document.body.appendChild(scriptTag);
     });
 }
