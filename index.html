@@ -167,15 +167,16 @@ async function checkForVersionUpdates() {
     }
 }
 
-function updateScriptVersion(currentVersion) {
+function updateScriptVersion(latestVersion) {
     const scriptsToUpdate = [
         "layers/terror_attacks_2.js",
         "styles/terror_attacks_2_style.js",
     ];
 
     scriptsToUpdate.forEach((src) => {
+        const response = fetch('version.json', { cache: 'no-store' }).then(res => res.json());
         const scriptTag = document.createElement('script');
-        scriptTag.src = `${src}?v=${currentVersion}`;
+        scriptTag.src = `${src}?v=${response.version}`;
         document.body.appendChild(scriptTag);
     });
 }
