@@ -71,11 +71,11 @@
             /* Heading of the notification */
             .notification h2 {
                 margin: 0;
-                font-size: 18px;
+                font-size: 14px;
                 margin-bottom: 10px;
                 background-color: red; /* Red background for the title */
                 color: white; /* White text for the title */
-                padding: 10px;
+                padding: 8px;
                 border-radius: 5px 5px 0 0; /* Rounded top corners */
             }
     
@@ -110,11 +110,6 @@
             }, 20000);
   
     </script>
-
-
-
-
-
 
 
 
@@ -187,8 +182,8 @@
         <script src="./resources/ol-layerswitcher.js"></script>
         <script src="layers/PakistanDistricts_1.js"></script>
 
-        <script src="layers/TerrorAttacks_2.js?v=1.0.4"></script>
-        <script src="layers/PoliticalEvents_3.js?v=1.0.4"></script>
+        <script src="layers/TerrorAttacks_2.js?v="+(+new Date());></script>
+        <script src="layers/PoliticalEvents_3.js?v="+(+new Date());></script>
 
         <script src="styles/PakistanDistricts_1_style.js"></script>
         <script src="styles/TerrorAttacks_2_style.js"></script>
@@ -222,7 +217,7 @@ async function checkForVersionUpdates() {
         if (!currentVersion || currentVersion !== latestVersion) {
             // Save the new version to localStorage
             localStorage.setItem('latestVersion', latestVersion);
-
+           
             // Play notification sound
             playSound();
 
