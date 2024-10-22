@@ -27,7 +27,7 @@ var style_TerrorAttacks_2 = function(feature, resolution){
                               labelFill, placement, bufferColor,
                               bufferWidth)
     }),new ol.style.Style({
-        image: new ol.style.Circle({radius: 3.9999999999999982 + size,
+        image: new ol.style.Circle({radius: 4.0 + size,
              fill: new ol.style.Fill({color: 'rgba(255,0,0,1.0)'})}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
