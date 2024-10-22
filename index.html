@@ -53,8 +53,8 @@
         <style>
             /* Style for the notification pop-up */
             .notification {
-                position: fixed;
-                top: 10px;
+                position: absolute;
+                bottom: 50px;
                 right: 10px;
                 width: 300px;
                 padding: 15px;
@@ -107,7 +107,7 @@
             // Automatically hide the notification after 20 seconds
             setTimeout(function() {
                 notification.classList.remove('show');
-            }, 20000);
+            }, 60000);
   
     </script>
 
@@ -183,12 +183,12 @@
         <script src="./resources/ol-layerswitcher.js"></script>
         <script src="layers/PakistanDistricts_1.js"></script>
        
-        <script src="layers/TerrorAttacks_2.js?v=1.0.1"></script>
-        <script src="layers/PoliticalEvents_3.js?v=1.0.1"></script>
+        <script src="layers/TerrorAttacks_2.js?v=1.0.2"></script>
+        <script src="layers/PoliticalEvents_3.js?v=1.0.2"></script>
     
         <script src="styles/PakistanDistricts_1_style.js"></script>
-        <script src="styles/TerrorAttacks_2_style.js?v=1.0.1"></script>
-        <script src="styles/PoliticalEvents_3_style.js?v=1.0.1"></script>
+        <script src="styles/TerrorAttacks_2_style.js"></script>
+        <script src="styles/PoliticalEvents_3_style.js"></script>
         <script src="./layers/layers.js" type="text/javascript"></script> 
         <script src="./resources/Autolinker.min.js"></script>
         <script src="./resources/qgis2web.js"></script>
